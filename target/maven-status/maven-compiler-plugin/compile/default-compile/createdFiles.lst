@@ -1,0 +1,16 @@
+br/com/trips/dto/TripDto.class
+br/com/trips/service/impl/ServiceCountry.class
+br/com/trips/handler/GetTripsByCountry.class
+br/com/trips/service/impl/ServicePeriod.class
+br/com/trips/dto/HandlerResponse.class
+br/com/trips/service/impl/ServiceCity.class
+br/com/trips/dto/HandlerRequest.class
+br/com/trips/dto/HandlerResponse$Builder.class
+br/com/trips/repository/DynamoDBManager.class
+br/com/trips/service/Service.class
+br/com/trips/model/Trip.class
+br/com/trips/service/impl/ServiceTrip.class
+br/com/trips/repository/TripRepository.class
+br/com/trips/service/impl/ServiceFactory.class
+br/com/trips/handler/CreateTrip.class
+br/com/trips/validators/Validator.class
