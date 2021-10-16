@@ -50,8 +50,7 @@ src/test/resources/trips.postman_collection.json
 
 
 ```bash
-export BUCKET_NAME=my_cool_new_bucket
-aws s3 mb s3://$BUCKET_NAME
+aws s3api create-bucket --bucket trips-bucket --region us-east-1
 ```
 
 2 - Suba o pacote para o bucket do S3 recen criado 
@@ -60,7 +59,8 @@ aws s3 mb s3://$BUCKET_NAME
 sam package \
     --template-file template.yaml \
     --output-template-file packaged.yaml \
-    --s3-bucket $BUCKET_NAME
+    --s3-bucket trips-bucket \
+    --region us-east-1
 ```
 
 3 - Execute o comando que segue para realizar o deploy!
@@ -68,16 +68,21 @@ sam package \
 ```bash
 sam deploy \
     --template-file packaged.yaml \
-    --stack-name trips-project \
+    --stack-name trips-app \
     --capabilities CAPABILITY_IAM
+    --region us-east-1
 ```
 
 4 - Verifique os endpoints disponibilizados para teste
 
+4.1 - rode o script que segue para ter acesso as informacoes da sua lambda deployada
+
 ```bash
-aws cloudformation describe-stacks \
-    --stack-name sam-orderHandler \
-    --query 'Stacks[].Outputs'
+aws apigateway get-rest-apis
 ```
 
+4.2 - com base nas informacoes retornadas, monte a url de teste conforme o exemplo que segue:
+
+```bash
+https://<restApiId>.execute-api.us-east-1.amazonaws.com/Prod/trips
 ```

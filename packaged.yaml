@@ -1,7 +1,6 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
-Description: 'projeto para trabalho serverless'
-
+Description: trips projects
 Globals:
   Function:
     Timeout: 40
@@ -15,7 +14,7 @@ Resources:
   CreateTripFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: s3://trips-fiap-335710/7edabe7fb0901ef8d5c3e94300ed013e
+      CodeUri: s3://trips-bucket/cb9f89b3d50eae834ce57269eaaa215c
       Handler: br.com.trips.handler.CreateTrip::handleRequest
       Runtime: java8
       Policies:
@@ -31,7 +30,7 @@ Resources:
   GetTripsByCountryFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: s3://trips-fiap-335710/7edabe7fb0901ef8d5c3e94300ed013e
+      CodeUri: s3://trips-bucket/cb9f89b3d50eae834ce57269eaaa215c
       Handler: br.com.trips.handler.GetTripsByCountry::handleRequest
       Runtime: java8
       Policies:
@@ -65,13 +64,13 @@ Resources:
       BillingMode: PAY_PER_REQUEST
 Outputs:
   CreateTripFunction:
-    Description: CreateTrip
+    Description: CreateTrip Lambda Function ARN
     Value:
       Fn::GetAtt:
       - CreateTripFunction
       - Arn
   GetTripsByCountryFunction:
-    Description: GetTripsByCountry
+    Description: GetTripsByCountry Lambda Function ARN
     Value:
       Fn::GetAtt:
       - GetTripsByCountryFunction
