@@ -1,6 +1,6 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
-Description: 'trips projects' 
+Description: 'trips projects'
 
 Globals:
     Function:
@@ -16,28 +16,28 @@ Resources:
   CreateTripFunction:
     Type: AWS::Serverless::Function
     Properties:
-     CodeUri: target/trip-project-1.0.0-SNAPSHOT-jar-with-dependencies.jar
+     CodeUri: target/trip-app-1.0.0-SNAPSHOT-jar-with-dependencies.jar
      Handler: br.com.trips.handler.CreateTrip::handleRequest
      Runtime: java8
      Policies:
        - DynamoDBCrudPolicy:
-           TableName: !Ref TripTable     
+           TableName: !Ref TripTable
      Events:
        CreateTrip:
          Type: Api
          Properties:
            Path: /trips
            Method: post
-              
+
   GetTripsByCountryFunction:
     Type: AWS::Serverless::Function
     Properties:
-     CodeUri: target/trip-project-1.0.0-SNAPSHOT-jar-with-dependencies.jar
+     CodeUri: target/trip-app-1.0.0-SNAPSHOT-jar-with-dependencies.jar
      Handler: br.com.trips.handler.GetTripsByCountry::handleRequest
      Runtime: java8
      Policies:
        - DynamoDBCrudPolicy:
-           TableName: !Ref TripTable     
+           TableName: !Ref TripTable
      Events:
        GetTripsByCountry:
          Type: Api
@@ -48,7 +48,7 @@ Resources:
            - method.request.querystring.city
            - method.request.querystring.starts
            - method.request.querystring.ends
-              
+
   TripTable:
     Type: AWS::DynamoDB::Table
     Properties:
@@ -63,15 +63,14 @@ Resources:
           KeyType: HASH
         - AttributeName: travelDate
           KeyType: RANGE
-      BillingMode: PAY_PER_REQUEST              
+      BillingMode: PAY_PER_REQUEST
 
 Outputs:
 
     CreateTripFunction:
       Description: "CreateTrip Lambda Function ARN"
       Value: !GetAtt CreateTripFunction.Arn
-      
+
     GetTripsByCountryFunction:
       Description: "GetTripsByCountry Lambda Function ARN"
       Value: !GetAtt GetTripsByCountryFunction.Arn
-     
