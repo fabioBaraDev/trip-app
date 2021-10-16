@@ -22,10 +22,9 @@ public class GetTripsByCountry implements RequestHandler<HandlerRequest, Handler
 	public HandlerResponse handleRequest(HandlerRequest request, Context context) {
 
 		try {
-			
-			Service service = new ServiceFactory().build(request);
-			
+
 			tripDto = new TripDto(request);
+			Service service = new ServiceFactory().build(tripDto);
 			trips = service.findTrip(tripDto);			
 
 		} catch (Exception ex) {

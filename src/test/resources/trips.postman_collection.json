@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "b650f3a7-811d-4714-a677-953939f11187",
+		"_postman_id": "d3a4c6b9-00ff-49ac-9ba7-8dbbae7dea05",
 		"name": "Trips Project",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -11,7 +11,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/trips/brasil/?starts=2020-02-22&ends=2020-03-02",
+					"raw": "http://localhost:3000/trips/usa/?starts=2018-02-09&ends=2020-10-03",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -19,17 +19,17 @@
 					"port": "3000",
 					"path": [
 						"trips",
-						"brasil",
+						"usa",
 						""
 					],
 					"query": [
 						{
 							"key": "starts",
-							"value": "2020-02-22"
+							"value": "2018-02-09"
 						},
 						{
 							"key": "ends",
-							"value": "2020-03-02"
+							"value": "2020-10-03"
 						}
 					]
 				}
@@ -50,7 +50,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"country\": \"brasil\",\n    \"city\": \"salvador\",\n    \"date\": \"2020-02-10\",\n    \"reason\": \"fun\"\n}"
+					"raw": "{\n    \"country\": \"usa\",\n    \"city\": \"miami\",\n    \"date\": \"2018-02-10\",\n    \"reason\": \"fun\"\n}"
 				},
 				"url": {
 					"raw": "http://localhost:3000/trips",
@@ -72,7 +72,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/trips/brasil",
+					"raw": "http://localhost:3000/trips/usa",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -80,7 +80,7 @@
 					"port": "3000",
 					"path": [
 						"trips",
-						"brasil"
+						"usa"
 					]
 				}
 			},
@@ -92,7 +92,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/trips/brasil/?city=salvador",
+					"raw": "http://localhost:3000/trips/usa/?city=miami",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -100,19 +100,18 @@
 					"port": "3000",
 					"path": [
 						"trips",
-						"brasil",
+						"usa",
 						""
 					],
 					"query": [
 						{
 							"key": "city",
-							"value": "salvador"
+							"value": "miami"
 						}
 					]
 				}
 			},
 			"response": []
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }
