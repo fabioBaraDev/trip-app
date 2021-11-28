@@ -69,7 +69,7 @@ sam package \
 sam deploy \
     --template-file packaged.yaml \
     --stack-name trips-app \
-    --capabilities CAPABILITY_IAM
+    --capabilities CAPABILITY_IAM \
     --region us-east-1
 ```
 

@@ -14,7 +14,7 @@ Resources:
   CreateTripFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: s3://trips-bucket/cb9f89b3d50eae834ce57269eaaa215c
+      CodeUri: s3://trips-bucket/9008d7dbe8631237d593c54f359c8c2f
       Handler: br.com.trips.handler.CreateTrip::handleRequest
       Runtime: java8
       Policies:
@@ -30,7 +30,7 @@ Resources:
   GetTripsByCountryFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: s3://trips-bucket/cb9f89b3d50eae834ce57269eaaa215c
+      CodeUri: s3://trips-bucket/9008d7dbe8631237d593c54f359c8c2f
       Handler: br.com.trips.handler.GetTripsByCountry::handleRequest
       Runtime: java8
       Policies:
